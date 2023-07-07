@@ -1,0 +1,19 @@
+<div class="row">
+  <div class="col-md-5">
+    <cms-document-list></cms-document-list>
+  </div>
+
+  <div class="col-md-4">
+    <!-- <cms-document-detail
+      *ngIf="selectedDocument; else noDocumentSelected"
+      [document]="selectedDocument"
+    ></cms-document-detail>
+    <ng-template #noDocumentSelected>
+      <div class="alert alert-info">
+        <h4>No Document Selected</h4>
+        <p>Please select a document from the list.</p>
+      </div>
+    </ng-template> -->
+    <router-outlet></router-outlet>
+  </div>
+</div>
