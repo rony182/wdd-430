@@ -1,17 +1,17 @@
 var Sequence = require("../models/Sequence");
 
-var maxDocumentId;
-var maxMessageId;
-var maxContactId;
+var maxGameId;
+var maxPlayerId;
+var maxTeamId;
 var sequenceId = null;
 
 function SequenceGenerator() {
   Sequence.findOne()
     .then(function (sequence) {
       sequenceId = sequence._id;
-      maxDocumentId = sequence.maxDocumentId;
-      maxMessageId = sequence.maxMessageId;
-      maxContactId = sequence.maxContactId;
+      maxGameId = sequence.maxGameId;
+      maxPlayerId = sequence.maxPlayerId;
+      maxTeamId = sequence.maxTeamId;
     })
     .catch(function (err) {
       console.error("An error occurred:", err);
@@ -23,20 +23,20 @@ SequenceGenerator.prototype.nextId = function (collectionType) {
   var nextId;
 
   switch (collectionType) {
-    case "documents":
-      maxDocumentId++;
-      updateObject = { maxDocumentId: maxDocumentId };
-      nextId = maxDocumentId;
+    case "games":
+      maxGameId++;
+      updateObject = { maxGameId: maxGameId };
+      nextId = maxGameId;
       break;
-    case "messages":
-      maxMessageId++;
-      updateObject = { maxMessageId: maxMessageId };
-      nextId = maxMessageId;
+    case "players":
+      maxPlayerId++;
+      updateObject = { maxPlayerId: maxPlayerId };
+      nextId = maxPlayerId;
       break;
-    case "contacts":
-      maxContactId++;
-      updateObject = { maxContactId: maxContactId };
-      nextId = maxContactId;
+    case "teams":
+      maxTeamId++;
+      updateObject = { maxTeamId: maxTeamId };
+      nextId = maxTeamId;
       break;
     default:
       return -1;

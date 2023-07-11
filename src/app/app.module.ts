@@ -5,43 +5,45 @@ import { HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header.component';
-import { ContactsComponent } from './contacts/contacts.component';
-import { ContactListComponent } from './contacts/contact-list/contact-list.component';
-import { ContactDetailComponent } from './contacts/contact-detail/contact-detail.component';
-import { ContactItemComponent } from './contacts/contact-item/contact-item.component';
-import { DocumentsComponent } from './documents/documents.component';
-import { DocumentListComponent } from './documents/document-list/document-list.component';
-import { DocumentDetailComponent } from './documents/document-detail/document-detail.component';
-import { DocumentItemComponent } from './documents/document-list/document-item/document-item.component';
-import { MessageItemComponent } from './messages/message-item/message-item.component';
-import { MessageEditComponent } from './messages/message-edit/message-edit.component';
-import { MessageListComponent } from './messages/message-list/message-list.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { AppRoutingModule } from './app-routing.module';
-import { DocumentEditComponent } from './documents/document-edit/document-edit.component';
-import { ContactEditComponent } from './contacts/contact-edit/contact-edit.component';
 import { DndModule } from 'ng2-dnd';
-import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
+import { RouterModule } from '@angular/router';
+import { GamesComponent } from './games/games.component';
+import { GameDetailComponent } from './games/game-detail/game-detail.component';
+import { GameEditComponent } from './games/game-edit/game-edit.component';
+import { GameItemComponent } from './games/game-item/game-item.component';
+import { GameListComponent } from './games/game-list/game-list.component';
+import { PlayersComponent } from './players/players.component';
+import { PlayerDetailComponent } from './players/player-detail/player-detail.component';
+import { PlayerEditComponent } from './players/player-edit/player-edit.component';
+import { PlayerItemComponent } from './players/player-item/player-item.component';
+import { PlayerListComponent } from './players/player-list/player-list.component';
+import { TeamsComponent } from './teams/teams.component';
+import { TeamDetailComponent } from './teams/team-detail/team-detail.component';
+import { TeamEditComponent } from './teams/team-edit/team-edit.component';
+import { TeamItemComponent } from './teams/team-item/team-item.component';
+import { TeamListComponent } from './teams/team-list/team-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ContactsComponent,
-    ContactListComponent,
-    ContactDetailComponent,
-    ContactItemComponent,
-    DocumentsComponent,
-    DocumentListComponent,
-    DocumentDetailComponent,
-    DocumentItemComponent,
-    MessageItemComponent,
-    MessageEditComponent,
-    MessageListComponent,
-    DropdownDirective,
-    DocumentEditComponent,
-    ContactEditComponent,
-    ContactsFilterPipe,
+    GamesComponent,
+    GameDetailComponent,
+    GameEditComponent,
+    GameItemComponent,
+    GameListComponent,
+    PlayersComponent,
+    PlayerDetailComponent,
+    PlayerEditComponent,
+    PlayerItemComponent,
+    PlayerListComponent,
+    TeamsComponent,
+    TeamDetailComponent,
+    TeamEditComponent,
+    TeamItemComponent,
+    TeamListComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,6 +51,7 @@ import { ContactsFilterPipe } from './contacts/contacts-filter.pipe';
     FormsModule,
     DndModule.forRoot(),
     HttpClientModule,
+    RouterModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

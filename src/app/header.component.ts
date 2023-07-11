@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'cms-header',
+  selector: 'wdd430-header',
   templateUrl: './header.component.html',
 })
 export class HeaderComponent {}

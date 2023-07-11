@@ -10,7 +10,7 @@ const logger = require("morgan");
 /// Establish a connection to the mongo database
 
 mongoose
-  .connect("mongodb://127.0.0.1:27017/cms", { useNewUrlParser: true })
+  .connect("mongodb://127.0.0.1:27017/wdd430", { useNewUrlParser: true })
   .then(() => {
     console.log("Connected to the database!");
   })
@@ -22,8 +22,8 @@ mongoose
 const index = require("./server/routes/app");
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
-const messageRoutes = require("./server/routes/messages");
-const contactRoutes = require("./server/routes/contacts");
+const messageRoutes = require("./server/routes/teams");
+const GameRoutes = require("./server/routes/games");
 const documentsRoutes = require("./server/routes/documents");
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
@@ -57,19 +57,19 @@ app.use((req, res, next) => {
 
 // Tell express to use the specified director as the
 // root directory for your web site
-app.use(express.static(path.join(__dirname, "dist/cms")));
+app.use(express.static(path.join(__dirname, "dist/wdd430")));
 
 // Tell express to map the default route ('/') to the index route
 app.use("/", index);
 app.use("/messages", messageRoutes);
-app.use("/contacts", contactRoutes);
+app.use("/games", GameRoutes);
 app.use("/documents", documentsRoutes);
 
 // ... ADD YOUR CODE TO MAP YOUR URL'S TO ROUTING FILES HERE ...
 
 // Tell express to map all other non-defined routes back to the index page
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "dist/cms/index.html"));
+  res.sendFile(path.join(__dirname, "dist/wdd430/index.html"));
 });
 
 // Define the port address and tell express to use this port
