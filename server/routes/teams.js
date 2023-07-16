@@ -22,7 +22,7 @@ router.get("/", (req, res, next) => {
 });
 
 router.post("/", (req, res, next) => {
-  const maxTeamId = sequenceGenerator.nextId("Team");
+  const maxTeamId = sequenceGenerator.nextId("teams");
   const team = new Team({
     id: maxTeamId,
     teamName: req.body.teamName,

@@ -9,6 +9,7 @@ router.get("/", (req, res, next) => {
     .populate("club")
     .then((players) => {
       res.status(200).json({
+        message: "Players fetched successfully!",
         players: players,
       });
     })

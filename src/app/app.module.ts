@@ -24,6 +24,9 @@ import { TeamDetailComponent } from './teams/team-detail/team-detail.component';
 import { TeamEditComponent } from './teams/team-edit/team-edit.component';
 import { TeamItemComponent } from './teams/team-item/team-item.component';
 import { TeamListComponent } from './teams/team-list/team-list.component';
+import { TeamsFilterPipe } from './teams/teams-filter.pipe';
+import { GamesFilterPipe } from './games/games-filter.pipe';
+import { PlayersFilterPipe } from './players/players-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -44,6 +47,10 @@ import { TeamListComponent } from './teams/team-list/team-list.component';
     TeamEditComponent,
     TeamItemComponent,
     TeamListComponent,
+    DropdownDirective,
+    TeamsFilterPipe,
+    GamesFilterPipe,
+    PlayersFilterPipe
   ],
   imports: [
     BrowserModule,

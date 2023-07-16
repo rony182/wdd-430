@@ -1,1 +1,72 @@
-<p>player-detail works!</p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="text-bold">{{ player?.playerName }}</h4>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-xs-12 d-flex justify-content-end align-items-center">
+                        <div class="d-flex">
+                            <button class="btn btn-primary" [routerLink]="['edit']">Edit</button>
+                            <button class="btn btn-danger ml-2" (click)="onDelete()">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Position: </strong>{{ player?.position }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Height: </strong>{{ player?.height }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Weight: </strong>{{ player?.weight }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Birthdate:</strong> {{ player?.birthdate | date: 'dd/MM/yyyy'}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Nationality: </strong>{{ player?.nationality }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Years of experience:</strong> {{ player?.experienceYears }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <strong>Team: </strong>
+                    <ng-container *ngIf="!player.club?.teamName; else playerTeam">
+                        <p>There is no club yet.</p>
+                    </ng-container>
+                    <ng-template #playerTeam>
+                        <a [routerLink]="['/teams', player.club?.id]">{{ player.club?.teamName }}</a>
+                    </ng-template>
+                </div>
+            </div>
+            

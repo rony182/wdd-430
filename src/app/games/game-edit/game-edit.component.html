@@ -1,1 +1,123 @@
-<p>game-edit works!</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="contact-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="gameDate">Date:</label>
+          <input type="date" id="gameDate" class="form-control required" size="120" required name="gameDate"
+  #gameDateModel="ngModel" [ngModel]="game?.gameDate | date:'yyyy-MM-dd'"
+  min="1850-01-01" max="{{ getCurrentDate() }}">
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="time">Time:</label>
+          <input type="text" id="time" class="form-control required"   required name="time"
+            #time="ngModel" [ngModel]="game?.time" pattern="\d{2}:\d{2}">
+          <!-- add a span to display a message to the user when the time field does not have the correct pattern -->
+          <div *ngIf="time.invalid && time.touched" class="alert alert-danger">
+            <span>Please enter a valid time in the format HH:MM (e.g., 10:00)</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="homeTeam">Home Team:</label>
+          <select id="homeTeam" class="form-control" name="homeTeam" [(ngModel)]="homeTeam" required #homeTeamModel="ngModel">
+            <option *ngFor="let team of teams" [value]="team.id" [selected]="team.id == game?.homeTeam?.id">{{ team.teamName }}</option>
+          </select>
+          <div *ngIf="homeTeamModel.invalid && (homeTeamModel.touched || homeTeamModel.dirty)" class="alert alert-danger">
+            <span>Please enter a valid homeTeam</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="awayTeam">Away Team:</label>
+          <select id="awayTeam" class="form-control" name="awayTeam" [(ngModel)]="awayTeam" required #awayTeamModel="ngModel">
+            <option *ngFor="let team of teams" [value]="team.id" [selected]="team.id == game?.awayTeam?.id">{{ team.teamName }}</option>
+          </select>
+          <div *ngIf="awayTeamModel.invalid && (awayTeamModel.touched || awayTeamModel.dirty)" class="alert alert-danger">
+            <span>Please enter a valid awayTeam</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="location">Location:</label>
+          <input type="text" id="location" class="form-control required"   required name="location"
+            #location="ngModel" [ngModel]="game?.location">
+          <!-- add a span to display a message to the user when the location field have not the correct patter -->
+          <div *ngIf="!location.valid && location.touched" class="alert  alert-danger">
+            <span>Please enter a valid location</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="attendance">Attendance:</label>
+          <input type="number" id="attendance" class="form-control required" required name="attendance"
+            #attendance="ngModel" [ngModel]="game?.attendance" min="0" max="150000" pattern="^[0-9]{1,6}$">
+          <!-- add a span to display a message to the user when the attendance field is invalid -->
+          <div *ngIf="attendance.invalid && attendance.touched" class="alert alert-danger">
+            <span>Please enter a valid attendance between 0 and 150,000</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="finalScore">Final Score:</label>
+          <input type="text" id="finalScore" class="form-control required"   required
+            name="finalScore" #finalScore="ngModel" [ngModel]="game?.finalScore" pattern="^\d{1,2}-\d{1,2}$">
+          <!-- add a span to display a message to the user when the finalScore field does not have the correct pattern -->
+          <div *ngIf="finalScore.invalid && finalScore.touched" class="alert alert-danger">
+            <span>Please enter a valid final score in the format '10-1'</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="recap">Recap:</label>
+          <textarea id="recap" class="form-control required" rows="4" cols="50" required name="recap" #recap="ngModel"
+            [(ngModel)]="game.recap"></textarea>
+          <!-- add a span to display a message to the user when the email field does not have the correct pattern -->
+          <div *ngIf="!recap.valid && recap.touched" class="alert  alert-danger">
+            <span>Please enter a valid recap</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
+            <div>
+              <p>Please fix the following errors:</p>
+              <ul>
+                <li *ngIf="!gameDateModel.valid">Date is required.</li>
+                <li *ngIf="!time.valid">Time is required.</li>
+                <li *ngIf="!homeTeamModel.valid">Home Team is required.</li>
+                <li *ngIf="!awayTeamModel.valid">Away Team is required.</li>
+                <li *ngIf="!location.valid">Location is required.</li>
+                <li *ngIf="!attendance.valid">Attendance is required.</li>
+                <li *ngIf="!finalScore.valid">Final Score is required.</li>
+                <li *ngIf="!recap.valid">Recap is required.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

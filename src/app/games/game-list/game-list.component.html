@@ -1,1 +1,22 @@
-<p>game-list works!</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <h1 class="title pad-left-right" style="margin-left: 1rem;">Games</h1>
+    </div>
+    <div class="row">
+      <div class="input-group pull-left pad-left-right col-xs-7" style="margin-left: 1rem;">
+        <input class="form-control" placeholder="Enter a search value" type="text" #searchBox
+          (keyup)="search(searchBox.value)">
+        <div class="glyphicon glyphicon-search input-group-addon" (click)="search(searchBox.value)"></div>
+      </div>
+      <div class="pull-right pad-left-right" style="margin-right: 1rem;">
+        <a class="btn btn-success" [routerLink]="['new']">New Game</a>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="col-xs-12">
+      <wdd430-game-item *ngFor="let gameEl of games | gamesFilter: term" [game]="gameEl"></wdd430-game-item>
+    </div>
+  </div>
+</div>

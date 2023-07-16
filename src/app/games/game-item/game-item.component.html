@@ -1,1 +1,7 @@
-<p>game-item works!</p>
+<a class="list-group-item clearfix" style="cursor: pointer;" routerLinkActive="active" [routerLink]="[game?.id]">
+    <div class="pull-left">
+      <h4 class="list-group-item-heading">{{ game.homeTeam?.teamName }} {{ game?.finalScore}} {{ game.awayTeam?.teamName }}, {{game?.gameDate | date:'dd-MM-yyyy'}}  </h4>
+    </div>
+    <span class="pull-right">
+    </span>
+  </a>

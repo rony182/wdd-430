@@ -1,1 +1,123 @@
-<p>team-edit works!</p>
+<div class="panel panel-default">
+  <div class="panel-body">
+    <form id="contact-edit" (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="teamName">Name:</label>
+          <input type="text" id="teamName" class="form-control required" size="120" max="120" required name="teamName"
+            #teamName="ngModel" [ngModel]="team?.teamName">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="coachName">Coach Name:</label>
+          <input type="text" id="coachName" class="form-control required" size="120" max="255" required name="coachName"
+            #coachName="ngModel" [ngModel]="team?.coachName">
+
+          <div *ngIf="!coachName.valid && coachName.touched" class="alert  alert-danger">
+            <span>Please enter a valid coachName</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="homeCity">Home City:</label>
+          <input type="text" id="homeCity" class="form-control required" size="120" max="255" required name="homeCity"
+            #homeCity="ngModel" [ngModel]="team?.homeCity">
+
+          <div *ngIf="!homeCity.valid && homeCity.touched" class="alert  alert-danger">
+            <span>Please enter a valid Home City</span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="foundationYear">Foundation Year:</label>
+          <label for="foundationYear">Foundation Year:</label>
+          <input type="number" id="foundationYear" class="form-control required" size="120" required
+            name="foundationYear" #foundationYear="ngModel" [ngModel]="team?.foundationYear" [min]="1850"
+            [max]="getCurrentYear()">
+
+          <div *ngIf="!foundationYear.valid && foundationYear.touched" class="alert  alert-danger">
+            <span>Please enter a valid Foundation Year</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="stadiumName">Stadium Name:</label>
+          <input type="text" id="stadiumName" class="form-control required" size="120" max="255" required
+            name="stadiumName" #stadiumName="ngModel" [ngModel]="team?.stadiumName">
+
+          <div *ngIf="!stadiumName.valid && stadiumName.touched" class="alert  alert-danger">
+            <span>Please enter a valid Stadium Name</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="capacity">Capacity:</label>
+          <input type="number" id="capacity" class="form-control required" size="120" required name="capacity"
+            #capacity="ngModel" [ngModel]="team?.capacity" min="0" max="220000">
+
+          <div *ngIf="!capacity.valid && capacity.touched" class="alert  alert-danger">
+            <span>Please enter a valid capacity</span>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 form-group">
+          <label for="division">Division:</label>
+          <input type="text" id="division" class="form-control required" size="120" max="255" required name="division"
+            #division="ngModel" [ngModel]="team?.division">
+
+          <div *ngIf="!division.valid && division.touched" class="alert  alert-danger">
+            <span>Please enter a valid Division</span>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="row">
+          <div class="col-sm-12 form-group">
+            <label for="recap">Recap:</label>
+            <textarea id="recap" class="form-control required" rows="4" cols="50" required name="recap"
+              #recap="ngModel" [(ngModel)]="game.recap"
+              ></textarea>
+             add a span to display a message to the user when the email field does not have the correct pattern 
+            <div *ngIf="!recap.valid && recap.touched" class="alert  alert-danger">
+              <span>Please enter a valid recap</span>
+            </div>
+          </div>
+        </div> -->
+
+
+      <div class="row">
+        <div class="col-xs-12 btn-toolbar">
+          <button class="btn btn-success" type="submit" [disabled]="!f.valid">Save</button>
+          <button class="btn btn-primary" type="button" (click)="onCancel()">Cancel</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="alert alert-danger" *ngIf="!f.valid && f.touched">
+            <div>
+              <p>Please fix the following errors:</p>
+              <ul>
+                <li *ngIf="!teamName.valid">Team Name is required.</li>
+                <li *ngIf="!coachName.valid">Coach Name is required.</li>
+                <li *ngIf="!homeCity.valid">Home City is required.</li>
+                <li *ngIf="!foundationYear.valid">Foundation Year is required.</li>
+                <li *ngIf="!stadiumName.valid">Stadium Name is required.</li>
+                <li *ngIf="!capacity.valid">Final Score is required.</li>
+                <li *ngIf="!division.valid">Division is required.</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </form>
+  </div>
+</div>

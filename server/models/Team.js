@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
-const teamSchema = new mongoose.Schema({
-  id : {
+const teamSchema = mongoose.Schema({
+  id: {
     type: Number,
     required: true,
   },

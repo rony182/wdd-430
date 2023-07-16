@@ -1,1 +1,70 @@
-<p>game-detail works!</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h4 class="text-bold">{{ game?.gameDate  | date:'dd-MM-yyyy' }}</h4>
+    <div class="row">
+      <div class="col-xs-6">
+        <div class="row">
+          <div class="col-xs-12 d-flex justify-content-end align-items-center">
+            <div class="d-flex">
+              <button class="btn btn-primary" [routerLink]="['edit']">Edit</button>
+              <button class="btn btn-danger ml-2" (click)="onDelete()">Delete</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            <strong>Home Team: </strong>
+            <a [routerLink]="['/teams', game.homeTeam.id]">{{ game.homeTeam.teamName }}</a>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            <strong>Away Team: 
+            </strong>
+            <a [routerLink]="['/teams', game.awayTeam.id]">{{ game.awayTeam.teamName }}</a>
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            <strong>Time: </strong>{{ game.time }}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            <strong>Location:</strong> {{ game.location }}
+          </p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <p>
+            <strong>Attendance: </strong>{{ game.attendance }}
+          </p>
+        </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <p>
+          <strong>Final Score:</strong> {{ game.finalScore }}
+        </p>
+      </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>
+        <strong>Recap: </strong>{{ game.recap }}
+      </p>
+    </div>
+</div>

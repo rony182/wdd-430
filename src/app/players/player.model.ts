@@ -7,7 +7,7 @@ export class Player {
         public position: string,
         public height: number,
         public weight: number,
-        public birthDate: Date,
+        public birthdate: Date,
         public nationality: string,
         public experienceYears: number,
         public club: Team,

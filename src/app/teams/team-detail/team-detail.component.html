@@ -1,1 +1,62 @@
-<p>team-detail works!</p>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="text-bold">{{ team.teamName }}</h4>
+        <div class="row">
+            <div class="col-xs-6">
+                <div class="row">
+                    <div class="col-xs-12 d-flex justify-content-end align-items-center">
+                        <div class="d-flex">
+                            <button class="btn btn-primary" [routerLink]="['edit']">Edit</button>
+                            <button class="btn btn-danger ml-2" (click)="onDelete()">Delete</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-xs-12">
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Coach Name: </strong>{{ team.coachName }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Homecity: </strong>{{ team.homeCity }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Foundation Year: </strong>{{ team.foundationYear }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Stadium Name:</strong> {{ team.stadiumName }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Capacity: </strong>{{ team.capacity }}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <p>
+                        <strong>Division:</strong> {{ team.division }}
+                    </p>
+                </div>
+            </div>
+            
+            

@@ -1,42 +1,42 @@
 const mongoose = require("mongoose");
 
-const playerSchema = new mongoose.Schema({
+const playerSchema = mongoose.Schema({
   id: {
     type: Number,
-    required: true
+    required: true,
   },
   playerName: {
     type: String,
-    required: true
+    required: true,
   },
   position: {
     type: String,
-    required: true
+    required: true,
   },
   height: {
     type: Number,
-    required: true
+    required: true,
   },
   weight: {
     type: Number,
-    required: true
+    required: true,
   },
   birthdate: {
     type: Date,
-    required: true
+    required: true,
   },
   nationality: {
     type: String,
-    required: true
+    required: true,
   },
   experienceYears: {
     type: Number,
-    required: true
+    required: true,
   },
   club: {
-    type: { type: mongoose.Schema.Types.ObjectId, ref: "Team" },
-    required: true
-  }
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Team",
+  },
 });
 
 module.exports = mongoose.model("Player", playerSchema);

@@ -22,9 +22,9 @@ mongoose
 const index = require("./server/routes/app");
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
-const messageRoutes = require("./server/routes/teams");
-const GameRoutes = require("./server/routes/games");
-const documentsRoutes = require("./server/routes/documents");
+const teamsroutes = require("./server/routes/teams");
+const gamesRoutes = require("./server/routes/games");
+const playersRoutes = require("./server/routes/players");
 
 // ... ADD CODE TO IMPORT YOUR ROUTING FILES HERE ...
 
@@ -61,9 +61,9 @@ app.use(express.static(path.join(__dirname, "dist/wdd430")));
 
 // Tell express to map the default route ('/') to the index route
 app.use("/", index);
-app.use("/messages", messageRoutes);
-app.use("/games", GameRoutes);
-app.use("/documents", documentsRoutes);
+app.use("/teams", teamsroutes);
+app.use("/games", gamesRoutes);
+app.use("/players", playersRoutes);
 
 // ... ADD YOUR CODE TO MAP YOUR URL'S TO ROUTING FILES HERE ...
 
