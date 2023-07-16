@@ -113,10 +113,8 @@ export class GameEditComponent implements OnInit {
     } else {
       this.gameService.addGame(newGame);
     }
-  
     this.router.navigate(['/games']);
   }
-  
 
   onCancel() {
     this.router.navigate(['/games']);

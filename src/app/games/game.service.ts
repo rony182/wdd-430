@@ -69,6 +69,7 @@ export class GameService {
       .subscribe((responseData) => {
         this.games.push(responseData.game);
         this.sortAndSend();
+        this.getGames();
       });
   }
 
@@ -91,6 +92,7 @@ export class GameService {
       .subscribe((response: Response) => {
         this.games[pos] = newGame;
         this.sortAndSend();
+        this.getGames();
       });
   }
 

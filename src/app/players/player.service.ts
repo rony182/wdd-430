@@ -73,6 +73,7 @@ export class PlayerService {
       .subscribe((responseData) => {
         this.players.push(responseData.player);
         this.sortAndSend();
+        this.getPlayers();
       });
   }
 
@@ -97,6 +98,7 @@ export class PlayerService {
       .subscribe((response: Response) => {
         this.players[pos] = newPlayer;
         this.sortAndSend();
+        this.getPlayers();
       });
   }
 
