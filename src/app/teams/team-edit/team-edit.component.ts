@@ -59,7 +59,6 @@ export class TeamEditComponent implements OnInit {
     }
     this.router.navigate(['/teams']);
   }
-  
 
   onCancel() {
     this.router.navigate(['/teams']);
@@ -68,5 +67,4 @@ export class TeamEditComponent implements OnInit {
   getCurrentYear(): number {
     return new Date().getFullYear();
   }
-  
 }
