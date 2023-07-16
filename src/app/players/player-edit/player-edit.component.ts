@@ -64,7 +64,9 @@ export class PlayerEditComponent implements OnInit {
   onSubmit(form: NgForm) {
     let values = form.value;
     
-    let team = this.teamMap[values.club];    
+    let club = this.teamMap[values.club]; 
+    console.log(club);
+      
     let newPlayer = new Player(
       null,
       values.playerName,
@@ -74,7 +76,7 @@ export class PlayerEditComponent implements OnInit {
       values.birthdate,
       values.nationality,
       values.experienceYears,
-      team
+      club
     );    
     if (this.editMode) {
       this.playerService.updatePlayer(this.originalPlayer, newPlayer);

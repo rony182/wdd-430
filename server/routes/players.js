@@ -23,7 +23,6 @@ router.get("/", (req, res, next) => {
 
 router.post("/", (req, res, next) => {
   const maxPlayerId = sequenceGenerator.nextId("players");
-
   const player = new Player({
     id: maxPlayerId,
     playerName: req.body.playerName,
@@ -60,9 +59,9 @@ router.put("/:id", (req, res, next) => {
       player.height = req.body.height;
       player.weight = req.body.weight;
       player.birthdate = req.body.birthdate;
-      nationality = req.body.nationality;
-      experienceYears = req.body.experienceYears;
-      club = req.body.club;
+      player.nationality = req.body.nationality;
+      player.experienceYears = req.body.experienceYears;
+      player.club = req.body.club;
       
       Player.updateOne({ id: req.params.id }, player)
         .then((result) => {
